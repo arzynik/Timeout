@@ -11,7 +11,7 @@ Timeout is as simple to run as setTimeout is in Javascript:
     }, 1000);
 
 
-Timeout uses SuperClosure which allows us to wrap our closures with real objects like this:
+Timeout uses SuperClosure (https://github.com/jeremeamia/super_closure) which allows us to wrap our closures with real objects like this:
 
 
     require 'User.php';
