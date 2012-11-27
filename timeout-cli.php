@@ -15,13 +15,13 @@ if ($a->s) {
 // include our libraries AFTER the nap, so we keep mem clean
 require 'Timeout.php';
 	
-// require function. useful for requires
+// require function. require classes first
 if ($a->r) {
 	$r = unserialize(base64_decode($a->r));
 	$r->__invoke();
 }
 
-// or execute suberclosure (recommended)
+// execute suberclosure
 if ($a->c) {
 	$c = unserialize(base64_decode($a->c));
 	$c->__invoke();
