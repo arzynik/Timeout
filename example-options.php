@@ -22,7 +22,7 @@ $o = Timeout::run(function() use($user) {
 }, 1, array(
 	'require' => function() {
 		// you will need to include class definitions first, so when decoding them they will be completed
-		require 'exampleRequire.php';
+		require 'ExampleRequire.php';
 	}
 ));
 
@@ -35,7 +35,7 @@ $o = Timeout::run(function() use($user) {
 	'async' => false,
 	'require' => function() {
 		// you will need to include class definitions first, so when decoding them they will be completed
-		require 'exampleRequire.php';
+		require 'ExampleRequire.php';
 	}
 ));
 
