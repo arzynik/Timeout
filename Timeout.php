@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * Timeout
+ *
+ * Timeout is a PHP implimentation of Javascript's setTimeout. It runs an asynchronous process in the
+ * background while the rest of your code can continue to run. Like forking a process, or spawning a 
+ * thread. Timeout is extremely useful for sending off mail, or 3rd party API callbacks like twilio or phaxio.
+ *
+ * @package Timeout
+ * @author  Devin Smith
+ * @license MIT
+ * @repo	https://github.com/arzynik/Timeout
+ *
+ */
+
 class Timeout {
 	public function __construct($func, $ms = null, $options = array()) {
 
@@ -63,8 +77,19 @@ class Timeout {
 
 
 /**
- * Thanks to Jeremy Lindblom for most of this
- * https://github.com/jeremeamia/super_closure
+ * SuperClosure
+ *
+ * The SuperClosure class encapsulates a PHP Closure and adds new capabilities like serialization and code retrieval.
+ * It uses the FunctionParser library to acquire information about the Closure to aid in serialization. Because the
+ * class works with Closures, it requires PHP version 5.3+. DISCLAIMERS: This class is not designed to perform well due
+ * to the nature of the techniques it uses. Also, you should note that it uses the `extract()` and `eval()` functions to
+ * make serialization/unserialization possible.
+ *
+ * @package SuperClosure
+ * @author  Jeremy Lindblom
+ * @license MIT
+ * @repo	https://github.com/jeremeamia/super_closure
+ *
  */
 
 class SuperClosure {
