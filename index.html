@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Timeout by arzynik</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Timeout</h1>
+        <p>A PHP implimentation of Javascript's setTimeout for Asynchronous PHP</p>
+
+        <p class="view"><a href="https://github.com/arzynik/Timeout">View the Project on GitHub <small>arzynik/Timeout</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/arzynik/Timeout/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/arzynik/Timeout/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/arzynik/Timeout">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Timeout</h1>
+
+<p>Timeout is a PHP implimentation of Javascript's setTimeout for <strong>Asynchronous PHP</strong>. It runs an asynchronous process in the background while the rest of your code can continue to run. Like forking a process, or spawning a thread. Timeout is extremely useful for sending off mail, or 3rd party API callbacks like twilio or phaxio.</p>
+
+<p>Timeout is as simple to run as setTimeout is in Javascript:</p>
+
+<pre><code>Timeout::run(function() {
+    mail('user@domain.com','Timeout Test','It works!');
+}, 1000);
+</code></pre>
+
+<p>Timeout uses SuperClosure (<a href="https://github.com/jeremeamia/super_closure">https://github.com/jeremeamia/super_closure</a>) which allows us to wrap our closures with real objects like this:</p>
+
+<pre><code>require 'User.php';
+
+$user = new User(array(
+    'Name' =&gt; 'Devin',
+    'Location' =&gt; 'LA',
+    'Food' =&gt; array(
+        'Sushi',
+        'Beer'
+    )
+));
+
+$o = Timeout::run(function() use($user) {
+    file_put_contents('test.txt', print_r($user-&gt;data(), 1));
+}, 1000, array(
+    'require' =&gt; function() {
+        // you will need to include class definitions first, so when decoding them they will be completed
+        require 'User.php';
+    }
+));
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/arzynik">arzynik</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
